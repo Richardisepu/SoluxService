@@ -1,0 +1,19 @@
+{% autoescape off %}
+
+
+<div>
+    <h1>¡Hola {{ user.user_name }}!</h1>    
+</div>
+
+<h2>Su cuenta ha sido creada con éxito. </h2>
+<h2>Por favor haga click en el siguiente link para activar tu cuenta: </h2>
+
+<br>
+<a href="http://{{ domain }}{% url 'account:activate' uidb64=uid token=token %}"> ACTIVAR CUENTA</a>
+<br>
+
+<h3>Atentamente</h3>
+<h3>Nuestro Equipo</h3>
+
+
+{% endautoescape %}

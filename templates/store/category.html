@@ -1,0 +1,71 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Productos{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="container" style="max-width: 1000px">
+  <div class="col-12">
+    <h1 class="h2">{{ category.name|title }}</h1>
+  </div>
+  <div class="col-12 d-flex justify-content-between">
+    <div>Productos <b>Más Vendidos</b></div>
+  </div>
+  <hr />
+</div>
+<div class="container">
+  <div class="row">
+    <div class="album">
+      {% if not products %}
+      <div class="col-12">Actualmente no hay productos activos <a href="{% url 'store:store_home' %}">Home</a></div>
+      {% else %}
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+        {% for product in products%}
+                                  <div class="col-sm-6 col-lg-4">
+                                      <div class="product mb-0">
+                                          <div class="product-thumb-info border-0 mb-3">
+
+                                              <div class="product-thumb-info-badges-wrapper">
+                                                  <span class="badge badge-ecommerce badge-success">NEW</span>
+
+                                              </div>
+
+                                              <div class="addtocart-btn-wrapper" >
+                                                  <a href="" class="text-decoration-none addtocart-btn" title="Añadir al Carrito">
+                                                      <i class="icons icon-bag"></i>
+                                                </a>
+                                              </div>
+                                              <a href="{{ product.get_absolute_url }}">
+                                                  <div class="product-thumb-info-image">
+                                                      {%if product.image%}
+                                                          <img class="" src="{{ product.image.url }}" height="150" weight="250" alt="">
+                                                      {%endif%}
+
+                                                  </div>
+                                              </a>
+                                          </div>
+                                          <div class="d-flex justify-content-between">
+                                              <div>
+                                                  <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">{{product.category}}</a>
+                                                  <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0"><a href="{{ product.get_absolute_url }}" class="text-color-dark text-color-hover-primary">{{product.title}}</a></h3>
+                                              </div>
+                                              <a href="#" class="text-decoration-none text-color-default text-color-hover-dark text-4"><i class="far fa-heart"></i></a>
+                                          </div>
+                                          <div title="Rated 5 out of 5">
+                                              <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
+                                          </div>
+                                          <p class="price text-5 mb-3">
+                                              <span class="sale text-color-dark font-weight-semi-bold">${{product.price|floatformat:0}}</span>
+                                              <!--<span class="amount">100.00</span>-->
+                                          </p>
+                                      </div>
+                                  </div>
+                                  {%endfor%}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

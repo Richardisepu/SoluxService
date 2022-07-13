@@ -1,0 +1,59 @@
+{% extends "../sub_base.html" %}
+{% block title %}Registro Nuevo Usuario{% endblock %}
+{% block sub_content %}
+
+
+<section class="page-header page-header-modern section position-relative border-0 mb-5" style="background-image: url(../media/images/fondo.jpg); background-position: center; background-size: cover;">
+  <div class="container position-relative pb-5 mb-5">
+
+    <div class="row text-center text-md-start py-2">
+      <div class="col p-relative bottom-5">
+        <ul class="breadcrumb d-block text-4 opacity-8 text-default mb-0">
+          <li><a href="/" class="text-decoration-none text-default">Home</a></li>
+          <li class="active">Registro</li>
+        </ul>
+        <h1 class="font-weight-bold text-color-dark text-10 mt-1 mb-0">Registro</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<form class="account-form" action="." method="post">
+  {% csrf_token %}
+  <h3 class="mb-2">Crear Nueva Cuenta</h3>
+  
+  <h4 class="mb-2">Ingrese sus Datos Personales</h4>
+
+  {% if form.errors %}
+  <p>Por favor corriga los siguientes errores:</p>
+  {% for field in form %}
+  {% if field.errors %}
+  <div class="alert alert-primary" role="alert">
+    {{ field.label }}: {{ field.errors|striptags }}
+  </div>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+
+  <label>{{ form.user_name.label }}<span class="text-muted small">
+      (Obligatorio)</span></label>
+  {{ form.user_name }}
+  <label>{{ form.email.label}}<span class="text-muted small">
+      (Obligatorio)</span></label>
+  {{ form.email }}
+  <label>{{ form.password.label}}<span class="text-muted mb-4">
+    </span></label>
+  <small class="form-text text-muted mb-4 small">
+    Por lo menos 8 dígitos incluyendo 1 número
+  </small>
+  {{ form.password }}
+  <label>{{ form.password2.label}}<span class="text-muted small">
+      (Obligatorio)</span></label>
+  {{ form.password2 }}
+  <button class="btn btn-primary btn-block py-2 mb-4 mt-5 fw500 w-100" type="submit">Registrarme</button>
+  <p class="text-center">
+    <a href="{% url "account:login" %}">¿Ya tiene una cuenta?</a>
+  </p>
+</form>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "./sub_base.html" %}
+{% load static %}
+{% block title %}Ingresar{% endblock %}
+{% block sub_content %}
+
+<section class="page-header page-header-modern section position-relative border-0 mb-5" style="background-image: url(); background-position: center; background-size: cover;">
+  <div class="container position-relative pb-5 mb-5">
+
+    <div class="row text-center text-md-start py-2">
+      <div class="col p-relative bottom-5">
+        <ul class="breadcrumb d-block text-4 opacity-8 text-default mb-0">
+          <li><a href="/" class="text-decoration-none text-default">Home</a></li>
+          <li class="active">Inicio de Sesión</li>
+        </ul>
+        <h1 class="font-weight-bold text-color-dark text-10 mt-1 mb-0">Inicio de Sesión</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<form class="account-form" action="{% url 'account:login' %}" method="post">
+  {% csrf_token %}
+  <h3 class="mb-4">Ingresar</h3>
+  {% if form.errors %}
+  <div class="alert alert-primary" role="alert">
+    Error: ¡El nombre de usuario o la contraseña no son correctos!
+  </div>
+  {% endif %}
+  <label class="form-label">{{ form.username.label}}</label>
+  {{ form.username}}
+  <label class="form-label">{{ form.password.label}}</label>
+  {{ form.password}}
+  <div class="d-grid gap-2">
+    <input type="hidden" name="next" value="{{ next }}">
+    <button class="btn btn-primary py-2 mb-4 mt-5 fw-bold" type="submit" value="Log-in">Ingresar
+    </button>
+  </div>
+  <div class="flex-column justify-content-center mx-auto pb-3">
+    <div class="text-center"><a href="{% url "account:register" %}">Crear una cuenta</a></div>
+    <div class="text-center"><a href="{% url "account:pwdreset" %}">¿Olvidó su contraseña?</a></div>
+  </div>
+</form>
+
+{% endblock %}
