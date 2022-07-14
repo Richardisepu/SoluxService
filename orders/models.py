@@ -5,6 +5,10 @@ from django.core.validators import MaxValueValidator
 
 from store.models import Product
 
+class Urls(models.Model):
+    urls = models.CharField(max_length=200)
+
+
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='order_user')

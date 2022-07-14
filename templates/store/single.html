@@ -55,8 +55,6 @@
             <span class="sale text-color-dark">${{ product.price|floatformat:0}}</span>
           </p>
 
-          <p class="text-3-5 mb-3">Descripción: Las gafas, también conocidas como lentes, anteojos, antiparras, binóculos o espejuelos, son un instrumento óptico formado por un par de lentes sujetadas a un armazón, que se apoya en la nariz mediante un arco y dos patillas1​ (también llamadas varillas, aunque no está recogido en el diccionario de la RAE) que ayudan a sostenerlas en las orejas. </p>
-
           <ul class="list list-unstyled text-2">
             <li class="mb-0">Stock: <strong class="text-color-dark">Disponible</strong></li>
             <li class="mb-0">SKU: <strong class="text-color-dark">1234567890</strong></li>
@@ -71,9 +69,6 @@
                 <label for="select">Cantidad </label>
                 <select id="select" class="h6 store-select-dropdown">
                   <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
                 </select>
               </div>
             </div>
@@ -84,151 +79,6 @@
               Favoritos</button>
           </div>
         </div>
-
-      </div>
-    </div>
-
-    <div class="row mb-4">
-      <div class="col">
-        <div id="description" class="tabs tabs-simple tabs-simple-full-width-line tabs-product tabs-dark mb-2">
-          <ul class="nav nav-tabs justify-content-start">
-            <li class="nav-item"><a class="nav-link active font-weight-bold text-3 text-uppercase py-2 px-3" href="#productDescription" data-bs-toggle="tab">Descripción</a></li>
-            <li class="nav-item"><a class="nav-link font-weight-bold text-3 text-uppercase py-2 px-3" href="#productInfo" data-bs-toggle="tab">Información Adicional</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-reviews font-weight-bold text-3 text-uppercase py-2 px-3" href="#productReviews" data-bs-toggle="tab">Comentarios (2)</a></li>
-          </ul>
-          <div class="tab-content p-0">
-            <div class="tab-pane px-0 py-3 active" id="productDescription">
-              <p>Descripción: Las gafas, también conocidas como lentes, anteojos, antiparras, binóculos o espejuelos, son un instrumento óptico formado por un par de lentes sujetadas a un armazón, que se apoya en la nariz mediante un arco y dos patillas1​ (también llamadas varillas, aunque no está recogido en el diccionario de la RAE) que ayudan a sostenerlas en las orejas. </p>              
-            </div>
-            <div class="tab-pane px-0 py-3" id="productInfo">
-              <table class="table table-striped m-0">
-                <tbody>
-                  <tr>
-                    <th class="border-top-0">
-                      Tamaño:
-                    </th>
-                    <td class="border-top-0">
-                      Unique
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>
-                      Color
-                    </th>
-                    <td>
-                      Negro, Blanco, Rojo
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>
-                      Materiales
-                    </th>
-                    <td>
-                      Plástico, Cristal
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="tab-pane px-0 py-3" id="productReviews">
-              <ul class="comments">
-                <li>
-                  <div class="comment">
-                    <div class="img-thumbnail border-0 p-0 d-none d-md-block">
-                      <img class="avatar rounded-circle" alt="" src="{% static 'img/avatar-man.jpg'%}">
-                    </div>
-                    <div class="comment-block">
-                      <div class="comment-arrow"></div>
-                      <span class="comment-by">
-                        <strong>Bobby K</strong>
-                        <span class="float-end">
-                          <div class="pb-0 clearfix">
-                            <div title="Rated 3 out of 5" class="float-start">
-                              <input type="text" class="d-none" value="3" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'primary', 'size':'xs'}">
-                            </div>
-
-                            <div class="review-num">
-                              <span class="count" itemprop="ratingCount">2</span> comentarios
-                            </div>
-                          </div>
-                        </span>
-                      </span>
-                      <p>100% recomendados!.</p>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="comment">
-                    <div class="img-thumbnail border-0 p-0 d-none d-md-block">
-                      <img class="avatar rounded-circle" alt="" src="{% static 'img/avatar-woman.jpg'%}">
-                    </div>
-                    <div class="comment-block">
-                      <div class="comment-arrow"></div>
-                      <span class="comment-by">
-                        <strong>Clara Ríos</strong>
-                        <span class="float-end">
-                          <div class="pb-0 clearfix">
-                            <div title="Rated 3 out of 5" class="float-start">
-                              <input type="text" class="d-none" value="3" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'primary', 'size':'xs'}">
-                            </div>
-
-                            <div class="review-num">
-                              <span class="count" itemprop="ratingCount">2</span> comentarios
-                            </div>
-                          </div>
-                        </span>
-                      </span>
-                      <p>Me encantaron mis nuevos lentes! Muy buen servicio ya que cumplieron con la entrega y llegó directo a mi hogar!</p>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <!-- formulario comentarios
-              <hr class="solid my-5">
-              <h4>Add a review</h4>
-              <div class="row">
-                <div class="col">
-                  
-                  <form action="" id="submitReview" method="post">
-                    <div class="row">
-                      <div class="form-group col pb-2">
-                        <label class="form-label required font-weight-bold text-dark">Rating</label>
-                        <input type="text" class="rating-loading" value="0" title="" data-plugin-star-rating data-plugin-options="{'color': 'primary', 'size':'sm'}">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group col-lg-6">
-                        <label class="form-label required font-weight-bold text-dark">Name</label>
-                        <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" required>
-                      </div>
-                      <div class="form-group col-lg-6">
-                        <label class="form-label required font-weight-bold text-dark">Email Address</label>
-                        <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" required>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group col">
-                        <label class="form-label required font-weight-bold text-dark">Review</label>
-                        <textarea maxlength="5000" data-msg-required="Please enter your review." rows="8" class="form-control" name="review" id="review" required></textarea>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group col mb-0">
-                        <input type="submit" value="Post Review" class="btn btn-primary btn-modern" data-loading-text="Loading...">
-                      </div>
-                    </div>
-                  </form>
-                  -->
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>       
-  </div>
-
 </div>
 </div>
 <!---->

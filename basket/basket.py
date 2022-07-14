@@ -72,7 +72,7 @@ class Basket():
         if subtotal == 0:
             shipping = int(0)
         else:
-            shipping = int(5000)
+            shipping = int(0)
 
         total = subtotal + int(shipping)
         return total

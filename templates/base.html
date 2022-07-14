@@ -71,18 +71,12 @@
         <div class="container">
           <div class="row justify-content-between">
             <div class="col-auto">
-              <p class="alternative-font-4 mb-0"><strong class="text-color-dark">Tienda Óptica - Preocupados por tu visión</strong></p>
+              <p class="alternative-font-4 mb-0"><strong class="text-color-dark">Solux Service</strong></p>
             </div>
             <div class="col-auto d-flex align-items-center">
               <nav>
                 <ul class="list list-unstyled d-flex text-1 mb-0">
-                  <a type="button" role="button" href="{% url "generic:red_tiendas" %}"
-                    class="btn btn-outline-secondary border-0 basket-btn">
-                    <span class=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                      <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                      <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg> Precios</span>
-                  </a>
+                  
                   {% if user.is_authenticated %}
                   <a type="button" role="button" href="{% url "account:dashboard" %}"
                     class="btn btn-outline-secondary border-0 basket-btn">
@@ -150,6 +144,7 @@
                 <div class="header-nav-main header-nav-main-square header-nav-main-light-text header-nav-main-effect-1 header-nav-main-sub-effect-1">
                   <nav class="collapse">
                     <ul class="nav nav-pills" id="mainNav">
+
                       <li>
                         <a class="nav-link" href="{% url "store:store_home" %}">
                           Home
@@ -159,24 +154,6 @@
                         <a class="dropdown-item dropdown-toggle" href="{% url "generic:acerca_de_nosotros" %}">
                           Acerca de Nosotros
                         </a>
-                      </li>
-                      <li>
-                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                          <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-none d-md-block fw500" href="#" id="navbarDropdown" role="button"
-                              data-bs-toggle="dropdown" aria-expanded="false">
-                              CATEGORÍAS
-                            </a>
-                            <ul class="dropdown-menu rounded-0 border-0" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item" href="{% url "store:store_home" %}">Ver todo</a></li>
-                              {% for c in categories %}
-                              <li {% if category.slug == c.slug %}class="selected" {% endif %}>
-                                <a class="dropdown-item" href="{{ c.get_absolute_url }}">{{ c.name|title }}</a>
-                              </li>
-                              {% endfor %}
-                            </ul>
-                          </li>
-                        </ul>
                       </li>
                       <li>
                         <a type="button" role="button" href="{% url "basket:basket_summary" %}"
@@ -198,7 +175,8 @@
                             </svg>
                           </div>
                         </a>
-                      </li>                      
+                      </li>
+
                     </ul>
                   </nav>
                 </div>
@@ -216,45 +194,6 @@
   <main class="pt-5">
     <div id="content">{% block content %} {% endblock %}</div>
   </main>
-  <!--
-  <footer class="container py-5 footer">
-    <hr>
-    <div class="row pt-4">
-      <div class="col-12 col-md">
-        <img class="pagebuilder-mobile-hidden" src="{%static 'img/icon/icon.png' %}" alt="" title="" data-element="desktop_image" width="70" height="70">
-        <small class="d-block mb-3 text-muted">&copy; 2022</small>
-      </div>
-      <div class="col-6 col-md fs15">
-        <h5>Ayuda</h5>
-        <ul class="list-unstyled">
-          <li><a class="link-secondary text-decoration-none" href="#">Cómo Comprar Online</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Preguntas Frecuentes</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Cómo Leer Mi Receta</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Cuidado de la Vista</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Cuidado de tus Lentes</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md fs15">
-        <h5>Mis compras</h5>
-        <ul class="list-unstyled">
-          <li><a class="link-secondary text-decoration-none" href="{% url "account:login" %}">Iniciar Sesión</a></li>
-          <li><a class="link-secondary text-decoration-none" href="{% url "account:register" %}">Crear una Cuenta</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Estado de tus Lentes</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Nosotros</h5>
-        <ul class="list-unstyled">
-          <li><a class="link-secondary text-decoration-none" href="#">Tiendas</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Términos y Condiciones</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Políticas de Garantía</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Condiciones Promocionales</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Contacto</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
--->
 <footer id="footer" class="section section-with-shape-divider border-0 custom-bg-lighten-grey-1 pt-5 pb-0 m-0">
   <div class="shape-divider shape-divider-reverse-x" style="height: 120px;">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2000 120" preserveAspectRatio="xMinYMin">
@@ -267,7 +206,7 @@
         <a href="">
           <img src="{%static 'img/icon/iconotienda.png' %}" class="" height="200" weight="200" alt="Tienda Óptica" />
         </a>
-        <p class="mb-0"><strong class="text-color-light">Tienda Óptica</strong></p>
+        <p class="mb-0"><strong class="text-color-light">SOLUX SERVICE</strong></p>
         <ul class="social-icons social-icons-medium">
           <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
           <li class="social-icons-twitter mx-2"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
